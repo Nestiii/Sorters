@@ -62,7 +62,8 @@ $(document).ready(function () {
       <li><a href="#bubble-sorter">Bubble Sorter</a></li>
       <li><a href="#insertion-sorter">Insertion Sorter</a></li>
       <li><a href="#selection-sorter">Selection Sorter</a></li>
-      <li><a href="#comparacion">Comparación</a></li>
+      <li><a href="#shell-sorter">Shell Sorter</a></li>
+      <li><a href="#comparacion-bubble-selection-insertion">Comparación (Bubble, Selection, Insertion)</a></li>
       <li><a href="#conclusion">Conclusión</a></li>
       </ul>
     </div>
@@ -4865,22 +4866,457 @@ Time(ms)
 </div>
 </div>
 </div>
-<div id="comparacion" class="section level1">
-<h1>Comparación</h1>
+<div id="shell-sorter" class="section level1">
+<h1>Shell Sorter</h1>
+<p>El Shell sort es una generalización del ordenamiento por inserción, teniendo en cuenta dos observaciones: El ordenamiento por inserción es eficiente si la entrada está “casi ordenada”. El ordenamiento por inserción es ineficiente, en general, porque mueve los valores sólo una posición cada vez. El algoritmo mejora el ordenamiento por inserción comparando elementos separados por un espacio de varias posiciones. Esto permite que un elemento haga “pasos más grandes” hacia su posición esperada. Los pasos múltiples sobre los datos se hacen con tamaños de espacio cada vez más pequeños. El último paso del Shell sort es un simple ordenamiento por inserción, pero para entonces, ya está garantizado que los datos del vector están casi ordenados.</p>
+<div id="parametros-empiricos-comparisons-swaps-y-timems-3" class="section level3">
+<h3>Parámetros empíricos: Comparisons, Swaps y Time(ms)</h3>
+<div id="sequence-1-1-8-23-77-281-1073-4193-16577" class="section level4 tabset">
+<h4>Sequence 1: 1, 8, 23, 77, 281, 1073, 4193, 16577</h4>
+<div id="integer-3" class="section level5 tabset">
+<h5>Integer</h5>
+<div id="section-90" class="section level6">
+<h6>100</h6>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+Variables
+</th>
+<th style="text-align:center;">
+Means
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+Comparisons
+</td>
+<td style="text-align:center;">
+2756
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Swaps
+</td>
+<td style="text-align:center;">
+2467
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Time(ms)
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="section-91" class="section level6">
+<h6>1000</h6>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+Variables
+</th>
+<th style="text-align:center;">
+Means
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+Comparisons
+</td>
+<td style="text-align:center;">
+252755
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Swaps
+</td>
+<td style="text-align:center;">
+248149
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Time(ms)
+</td>
+<td style="text-align:center;">
+5
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="section-92" class="section level6">
+<h6>10000</h6>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+Variables
+</th>
+<th style="text-align:center;">
+Means
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+Comparisons
+</td>
+<td style="text-align:center;">
+25054786
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Swaps
+</td>
+<td style="text-align:center;">
+24990451
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Time(ms)
+</td>
+<td style="text-align:center;">
+332
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="string-3" class="section level5 tabset">
+<h5>String</h5>
+<div id="section-93" class="section level6">
+<h6>100</h6>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+Variables
+</th>
+<th style="text-align:center;">
+Means
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+Comparisons
+</td>
+<td style="text-align:center;">
+1048
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Swaps
+</td>
+<td style="text-align:center;">
+862
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Time(ms)
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="section-94" class="section level6">
+<h6>1000</h6>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+Variables
+</th>
+<th style="text-align:center;">
+Means
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+Comparisons
+</td>
+<td style="text-align:center;">
+16324
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Swaps
+</td>
+<td style="text-align:center;">
+12508
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Time(ms)
+</td>
+<td style="text-align:center;">
+2
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="sequence-2-1-4-13-40-121-364-1093-3280-9841" class="section level4 tabset">
+<h4>Sequence 2: 1, 4, 13, 40, 121, 364, 1093, 3280, 9841</h4>
+<div id="integer-4" class="section level5 tabset">
+<h5>Integer</h5>
+<div id="section-95" class="section level6">
+<h6>100</h6>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+Variables
+</th>
+<th style="text-align:center;">
+Means
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+Comparisons
+</td>
+<td style="text-align:center;">
+2807
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Swaps
+</td>
+<td style="text-align:center;">
+2467
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Time(ms)
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="section-96" class="section level6">
+<h6>1000</h6>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+Variables
+</th>
+<th style="text-align:center;">
+Means
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+Comparisons
+</td>
+<td style="text-align:center;">
+253602
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Swaps
+</td>
+<td style="text-align:center;">
+248149
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Time(ms)
+</td>
+<td style="text-align:center;">
+6
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="section-97" class="section level6">
+<h6>10000</h6>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+Variables
+</th>
+<th style="text-align:center;">
+Means
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+Comparisons
+</td>
+<td style="text-align:center;">
+25065685
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Swaps
+</td>
+<td style="text-align:center;">
+24990451
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Time(ms)
+</td>
+<td style="text-align:center;">
+326
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="string-4" class="section level5 tabset">
+<h5>String</h5>
+<div id="section-98" class="section level6">
+<h6>100</h6>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+Variables
+</th>
+<th style="text-align:center;">
+Means
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+Comparisons
+</td>
+<td style="text-align:center;">
+1014
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Swaps
+</td>
+<td style="text-align:center;">
+828
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Time(ms)
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="section-99" class="section level6">
+<h6>1000</h6>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+Variables
+</th>
+<th style="text-align:center;">
+Means
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+Comparisons
+</td>
+<td style="text-align:center;">
+16431
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Swaps
+</td>
+<td style="text-align:center;">
+12614
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Time(ms)
+</td>
+<td style="text-align:center;">
+2
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="comparacion-bubble-selection-insertion" class="section level1">
+<h1>Comparación (Bubble, Selection, Insertion)</h1>
 <p>Luego de mostrar los datos obtenidos de las diferentes pruebas, comparemos los sorters, promediando las variables para todos sus N, todos los tipos de datos, y todos los ordenamientos, comparando así el rendimiento total de los sorters.</p>
 <div id="graficos" class="section level3 tabset">
 <h3>Gráficos</h3>
 <div id="comparaciones" class="section level4">
 <h4>Comparaciones</h4>
-<p><img src="index_files/figure-html/unnamed-chunk-97-1.png" width="768" /></p>
+<p><img src="index_files/figure-html/unnamed-chunk-112-1.png" width="768" /></p>
 </div>
 <div id="intercambios" class="section level4">
 <h4>Intercambios</h4>
-<p><img src="index_files/figure-html/unnamed-chunk-98-1.png" width="768" /></p>
+<p><img src="index_files/figure-html/unnamed-chunk-113-1.png" width="768" /></p>
 </div>
 <div id="tiempo" class="section level4">
 <h4>Tiempo</h4>
-<p><img src="index_files/figure-html/unnamed-chunk-99-1.png" width="768" /></p>
+<p><img src="index_files/figure-html/unnamed-chunk-114-1.png" width="768" /></p>
 </div>
 </div>
 </div>
