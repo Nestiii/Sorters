@@ -1,0 +1,172 @@
+```{r,echo=FALSE,message=FALSE}
+bubble <- round(mean(Bubble[,7]))
+selection <- round(mean(Selection[,7]))
+insertion <- round(mean(Insertion[,7]))
+barplot(c(bubble,selection,insertion),names.arg =  c("Bubble","Selection","Insertion"),main = "Time(ms) by sorter",col = c("#6200FF","#7E2FFE","#9759FB"))
+```
+
+```{r,echo=FALSE,message=FALSE}
+compMean <- round(mean(Sequence2[which(Sequence2$dataType == "str" & Sequence2$N == "1000"),5]))
+swapsMean <- round(mean(Sequence2[which(Sequence2$dataType == "str" & Sequence2$N == "1000"),6]))
+timeMean <- round(mean(Sequence2[which(Sequence2$dataType == "str" & Sequence2$N == "1000"),7])) 
+means <- data.frame("Variables" = c("Comparisons","Swaps","Time(ms)"),"Means" = c(compMean,swapsMean,timeMean))
+kable(means, align = "c")
+```
+
+#### String {.tabset}
+
+##### Ascending {.tabset}
+
+###### 10
+
+```{r,echo=FALSE,message=FALSE}
+compMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "asc" & Selection$N == "10"),5]))
+swapsMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "asc" & Selection$N == "10"),6]))
+timeMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "asc" & Selection$N == "10"),7])) 
+means <- data.frame("Variables" = c("Comparisons","Swaps","Time(ms)"),"Means" = c(compMean,swapsMean,timeMean))
+kable(means, align = "c")
+```
+
+###### 50
+
+```{r,echo=FALSE,message=FALSE}
+compMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "asc" & Selection$N == "50"),5]))
+swapsMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "asc" & Selection$N == "50"),6]))
+timeMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "asc" & Selection$N == "50"),7])) 
+means <- data.frame("Variables" = c("Comparisons","Swaps","Time(ms)"),"Means" = c(compMean,swapsMean,timeMean))
+kable(means, align = "c")
+```
+
+###### 500
+
+```{r,echo=FALSE,message=FALSE}
+compMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "asc" & Selection$N == "500"),5]))
+swapsMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "asc" & Selection$N == "500"),6]))
+timeMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "asc" & Selection$N == "500"),7])) 
+means <- data.frame("Variables" = c("Comparisons","Swaps","Time(ms)"),"Means" = c(compMean,swapsMean,timeMean))
+kable(means, align = "c")
+```
+
+###### 1000
+
+```{r,echo=FALSE,message=FALSE}
+compMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "asc" & Selection$N == "1000"),5]))
+swapsMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "asc" & Selection$N == "1000"),6]))
+timeMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "asc" & Selection$N == "1000"),7])) 
+means <- data.frame("Variables" = c("Comparisons","Swaps","Time(ms)"),"Means" = c(compMean,swapsMean,timeMean))
+kable(means, align = "c")
+```
+
+###### 5000
+
+```{r,echo=FALSE,message=FALSE}
+compMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "asc" & Selection$N == "5000"),5]))
+swapsMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "asc" & Selection$N == "5000"),6]))
+timeMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "asc" & Selection$N == "5000"),7])) 
+means <- data.frame("Variables" = c("Comparisons","Swaps","Time(ms)"),"Means" = c(compMean,swapsMean,timeMean))
+kable(means, align = "c")
+```
+
+##### Descending {.tabset}
+
+###### 10
+
+```{r,echo=FALSE,message=FALSE}
+compMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "desc" & Selection$N == "10"),5]))
+swapsMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "desc" & Selection$N == "10"),6]))
+timeMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "desc" & Selection$N == "10"),7])) 
+means <- data.frame("Variables" = c("Comparisons","Swaps","Time(ms)"),"Means" = c(compMean,swapsMean,timeMean))
+kable(means, align = "c")
+```
+
+###### 50
+
+```{r,echo=FALSE,message=FALSE}
+compMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "desc" & Selection$N == "50"),5]))
+swapsMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "desc" & Selection$N == "50"),6]))
+timeMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "desc" & Selection$N == "50"),7])) 
+means <- data.frame("Variables" = c("Comparisons","Swaps","Time(ms)"),"Means" = c(compMean,swapsMean,timeMean))
+kable(means, align = "c")
+```
+
+###### 500
+
+```{r,echo=FALSE,message=FALSE}
+compMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "desc" & Selection$N == "500"),5]))
+swapsMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "desc" & Selection$N == "500"),6]))
+timeMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "desc" & Selection$N == "500"),7])) 
+means <- data.frame("Variables" = c("Comparisons","Swaps","Time(ms)"),"Means" = c(compMean,swapsMean,timeMean))
+kable(means, align = "c")
+```
+
+###### 1000
+
+```{r,echo=FALSE,message=FALSE}
+compMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "desc" & Selection$N == "1000"),5]))
+swapsMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "desc" & Selection$N == "1000"),6]))
+timeMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "desc" & Selection$N == "1000"),7])) 
+means <- data.frame("Variables" = c("Comparisons","Swaps","Time(ms)"),"Means" = c(compMean,swapsMean,timeMean))
+kable(means, align = "c")
+```
+
+###### 5000
+
+```{r,echo=FALSE,message=FALSE}
+compMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "desc" & Selection$N == "5000"),5]))
+swapsMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "desc" & Selection$N == "5000"),6]))
+timeMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "desc" & Selection$N == "5000"),7])) 
+means <- data.frame("Variables" = c("Comparisons","Swaps","Time(ms)"),"Means" = c(compMean,swapsMean,timeMean))
+kable(means, align = "c")
+```
+
+##### Random {.tabset}
+
+###### 10
+
+```{r,echo=FALSE,message=FALSE}
+compMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "rand" & Selection$N == "10"),5]))
+swapsMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "rand" & Selection$N == "10"),6]))
+timeMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "rand" & Selection$N == "10"),7])) 
+means <- data.frame("Variables" = c("Comparisons","Swaps","Time(ms)"),"Means" = c(compMean,swapsMean,timeMean))
+kable(means, align = "c")
+```
+
+###### 50
+
+```{r,echo=FALSE,message=FALSE}
+compMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "rand" & Selection$N == "50"),5]))
+swapsMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "rand" & Selection$N == "50"),6]))
+timeMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "rand" & Selection$N == "50"),7])) 
+means <- data.frame("Variables" = c("Comparisons","Swaps","Time(ms)"),"Means" = c(compMean,swapsMean,timeMean))
+kable(means, align = "c")
+```
+
+###### 500
+
+```{r,echo=FALSE,message=FALSE}
+compMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "rand" & Selection$N == "500"),5]))
+swapsMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "rand" & Selection$N == "500"),6]))
+timeMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "rand" & Selection$N == "500"),7])) 
+means <- data.frame("Variables" = c("Comparisons","Swaps","Time(ms)"),"Means" = c(compMean,swapsMean,timeMean))
+kable(means, align = "c")
+```
+
+###### 1000
+
+```{r,echo=FALSE,message=FALSE}
+compMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "rand" & Selection$N == "1000"),5]))
+swapsMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "rand" & Selection$N == "1000"),6]))
+timeMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "rand" & Selection$N == "1000"),7])) 
+means <- data.frame("Variables" = c("Comparisons","Swaps","Time(ms)"),"Means" = c(compMean,swapsMean,timeMean))
+kable(means, align = "c")
+```
+
+###### 5000
+
+```{r,echo=FALSE,message=FALSE}
+compMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "rand" & Selection$N == "5000"),5]))
+swapsMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "rand" & Selection$N == "5000"),6]))
+timeMean <- round(mean(Selection[which(Selection$dataType == "str" & Selection$dataOrder == "rand" & Selection$N == "5000"),7])) 
+means <- data.frame("Variables" = c("Comparisons","Swaps","Time(ms)"),"Means" = c(compMean,swapsMean,timeMean))
+kable(means, align = "c")
+```
